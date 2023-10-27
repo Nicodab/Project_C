@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     make
 
 # Téléchargement du fichier rockyou.txt dans le répertoire courant
-RUN wget -O /app/rockyou.txt https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+RUN wget -O rockyou.txt https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
 
 # Copie du dossier src et du fichier Makefile dans le conteneur
 COPY src /app/src
