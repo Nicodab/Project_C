@@ -1,5 +1,5 @@
-# Utiliser l'image de base Ubuntu 22.04.1
-FROM ubuntu:22.04.1
+# Utiliser la dernière image Ubuntu dispo
+FROM ubuntu:latest
 
 # Mise à jour du système et installation des dépendances
 RUN apt-get update && apt-get install -y \
