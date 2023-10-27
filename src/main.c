@@ -74,9 +74,9 @@ int main(int argc, char *argv[]) {
             // Si c'est pas un saut de ligne
 
             if (strcmp(hash, "\n") != 0){
-                //printf("Before exit condition\n");
-                //exitFunction(hash); // Quitte ke programme si c'est exit MAIS j'aimerais éviter le "segmentation fault (core dumped)"
-                //printf("After exit condition\n");
+                printf("Before exit condition\n");
+                exitFunction(hash); // Quitte ke programme si c'est exit MAIS j'aimerais éviter le "segmentation fault (core dumped)"
+                printf("After exit condition\n");
                 //printf("HASH_LENGTH: %d\n", HASH_LENGTH);
                 //printf("Hash avant strcspn: %s\n", hash);
                 //printf("63e du hash recherché: %c\n", hash[63]);
