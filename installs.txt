@@ -1,0 +1,49 @@
+gcc compiler:
+- sudo apt install gcc
+
+
+openssl:
+- Debian/Ubuntu: sudo apt-get update; sudo apt-get install libssl-dev; (à voir si y'a besoin du ;")
+
+- Fedora: sudo dnf install openssl-devel
+
+- CentOS/RHEL: sudo yum install openssl-devel
+
+MAJ OPENSSL:
+Apparement cette commande n'installe que la version d'openssl ancienne avec des fonctions deprecated. Donc pour ça il faut utiliser les commandes suivantes après l'installation d'openssl pour faire une montée de version sur openssl de sorte à utiliser les fonctions non deprecated.
+- sudo apt-get update
+- sudo apt-get install --only-upgrade libssl-dev
+MAIS CA ne marche pas puisque l'invite de cmd medit que c'est déjà la dernière version doinc je capte pas.
+
+Il faut installer wget, PUIS utiliser wget pour placer le fichier rockyou.txt dans /usr/share/wordlists (on créer le dossier wordlists en amont avec sudo car il n'existe pas forcéméent sur toutes les distributions linux):
+- sudo apt-get update
+- sudo apt-get install wget
+- sudo mkdir /usr/share/wordlists
+- sudo wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt -P /usr/share/wordlists/
+
+Faut installer aussi valgrind qui ne vient pas par défaut dans un OS Linux:
+- sudo apt-get install -y valgrind
+
+
+COmpilation:
+gcc -o progamme main.c generate.c lookup.c -lssl -lcrypto --> ça compile
+Exécution: pour le moment 
+mode G: ./progamme -G -o table.txt
+mode L: ./progamme -L -o table.txt (mais à changer complètement) !!!
+
+
+Pré-requis:
+- Installer make: sudo apt install make
+
+
+Vrai-prérequis:
+- OS Linux
+- Docker d'installé : cmd éventuelle
+
+Construction image:
+docker build -t c_project .
+
+
+compilation:
+make pour compiler le code source changé dans le dossier src
+make clean pour supprimer l'exécutable généré par gcc précédemment.
